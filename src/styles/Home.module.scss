@@ -1,0 +1,419 @@
+  @import url('https://fonts.googleapis.com/css2?family=Farro:wght@300;400;500;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Fenix&display=swap');
+
+
+
+  .header {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    padding: 0 40px;
+    object-fit: contain;
+    background: #060800;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: space-between;
+    background-image: url('../../public/images/onça.png');
+
+    .headerMainContainer {
+      width: 70%;
+      height: 70%;
+      display: flex;
+      margin: 0 auto;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .tituloAmazonia {
+        width: 100%;
+        display: flex;
+        align-items: start;
+        box-sizing: border-box;
+        flex-direction: column;
+        justify-content: center;
+
+        div:nth-child(1) {
+          width: 500px;
+          color: #ffffff;
+          font-weight: 400;
+          font-size: 3.5rem;
+          letter-spacing: -2px;
+        }
+
+        div:nth-child(2) {
+          width: 500px;
+          color: #ffffff;
+          font-weight: 200;
+          font-size: 1.2rem;
+          letter-spacing: -1px;
+        }
+
+        div:nth-child(3) {
+          padding: 15px;
+          cursor: pointer;
+          color: #ffffff;
+          font-weight: 600;
+          margin-top: 30px;
+          border-radius: 5px;
+          transition: .5s ease-in-out;
+          background-color: #a8e401;
+        }
+
+        div:nth-child(3):hover {
+          background-color: rgb(56, 71, 0);
+        }
+      }
+
+      .headerContent {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        margin: 0 auto;
+        align-Items: center;
+        justify-content: space-between;
+
+        .navBarList {
+          height: 30px;
+          display: flex;
+          align-items: center;
+
+          a {
+            color: #ffffff;
+            font-weight: 300;
+            font-size: 1.1rem;
+            position: relative;
+            margin-right: 50px;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: lowercase;
+            transition: .5s ease-in-out;
+          }
+
+          a:hover {
+            color: #a8e401;
+          }
+
+          a::after {
+            left: 0;
+            top: -5px;
+            width: 0%;
+            height: 3px;
+            content: '';
+            position: absolute;
+            background-color: #a8e401;
+            transition: .5s ease-in-out;
+
+          }
+
+          a:hover::after {
+            content: '';
+            width: 100%;
+          }
+        }
+
+        div {
+          color: #fff;
+          display: flex;
+          font-size: 2.4rem;
+          position: relative;
+          color: #a6e103;
+          justify-content: center;
+        }
+
+        a {
+          font-weight: 800;
+          color: #a8e401;
+        }
+      }
+    }
+
+  }
+
+  .container {
+    padding: 0;
+    display: flex;
+    margin: 40px 0 0 0;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Farro', sans-serif;
+
+    .containerBlock {
+      z-index: 2;
+      width: 900px;
+      margin: 30px;
+      height: 650px;
+      display: flex;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      align-items: center;
+      border-radius: 10px;
+      flex-direction: column;
+      background-color: #E4E4E4;
+
+      div {
+        width: 90%;
+      }
+
+      div:nth-child(2) {
+        font-size: 2rem;
+        margin-top: 20px;
+        letter-spacing: -2px;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0.708);
+      }
+
+      div:nth-child(4) {
+        margin-top: 20px;
+        font-size: 1.2rem;
+        color: #00000096;
+        margin-bottom: 30px;
+        letter-spacing: -1px;
+      }
+
+      .imgContent {
+        height: 60%;
+        width: 100%;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          min-width: 100%;
+          position: absolute;
+        }
+
+        h1 {
+          width: 50%;
+          z-index: 2;
+          color: #fff;
+          font-weight: 100;
+          font-size: 2.8rem;
+          text-align: center;
+          letter-spacing: 10px;
+          pointer-events: none;
+          text-transform: uppercase;
+
+        }
+      }
+    }
+  }
+
+  .containerGrid {
+    width: 900px;
+    display: grid;
+    margin: 0 auto;
+    justify-content: space-between;
+    grid-template-columns: auto auto;
+
+    .containerBlockGrid {
+      width: 400px;
+      height: 450px;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      background-color: #E4E4E4;
+
+      div:nth-child(2) {
+        width: 90%;
+        font-weight: 600;
+        margin: 10px auto;
+        font-size: 1.5rem;
+        text-transform: uppercase;
+        color: rgba(0, 0, 0, 0.708);
+      }
+
+      div:nth-child(3) {
+        width: 90%;
+        margin: 10px auto;
+      }
+
+      div:nth-child(4) {
+        width: 90%;
+        margin: 0 auto;
+        font-size: 1rem;
+        color: #060800d7;
+        font-family: 'Inter', sans-serif;
+      }
+
+      .imgContentGrid {
+        width: 100%;
+        height: 60%;
+        display: flex;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+
+        h1 {
+          z-index: 2;
+          color: #fff;
+          font-weight: 100;
+          font-size: 2rem;
+          position: absolute;
+          text-align: center;
+          letter-spacing: 13px;
+          pointer-events: none;
+          text-transform: uppercase;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .icons {
+    top: 20px !important;
+    right: 20px !important;
+    width: 50px !important;
+    display: flex !important;
+    position: absolute !important;
+    align-items: center !important;
+    justify-content: center !important;
+    justify-content: space-between !important;
+
+    span {
+      width: 30px;
+      height: 30px;
+      color: #fff;
+      padding: 10px;
+      display: flex;
+      font-size: 100px;
+      cursor: pointer;
+      border-radius: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .backgroundBlack {
+    width: 100% !important;
+    z-index: 1 !important;
+    height: 100% !important;
+    position: absolute !important;
+    background: #0000009e !important;
+    transition: .5s ease-in-out !important;
+  }
+
+  .backgroundBlack:hover {
+    background: #0000002f !important;
+  }
+
+
+
+  .ldsRoller {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ldsRoller div {
+    animation: ldsRoller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+
+  }
+
+  .ldsRoller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #79c400;
+    margin: -4px 0 0 -4px;
+  }
+
+  .ldsRoller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+
+  .ldsRoller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+
+  .ldsRoller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+
+  .ldsRoller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+
+  .ldsRoller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+
+  .ldsRoller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+
+  .ldsRoller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+
+  .ldsRoller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+
+  .ldsRoller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+
+  .ldsRoller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+
+  .ldsRoller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+
+  .ldsRoller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+
+  .ldsRoller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+
+  .ldsRoller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+
+  .ldsRoller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+
+  .ldsRoller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+
+  @keyframes ldsRoller {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }

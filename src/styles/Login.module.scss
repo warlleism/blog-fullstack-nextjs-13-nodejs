@@ -1,0 +1,250 @@
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+  .container {
+      width: 100%;
+      display: flex;
+      height: 100vh;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', sans-serif;
+      background-color: #eaffdb;
+
+      .backgroundTop {
+          top: 0;
+          width: 100%;
+          height: 500px;
+          position: absolute;
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          background-image: url('/images/background.png'),
+              linear-gradient(45deg,
+                  hsl(0deg 0% 0%) 1%,
+                  hsl(89deg 100% 6%) 43%,
+                  hsl(88deg 100% 9%) 50%,
+                  hsl(95deg 100% 13%) 51%,
+                  hsl(92deg 100% 16%) 51%,
+                  hsl(87deg 100% 20%) 49%,
+                  hsl(82deg 100% 24%) 49%,
+                  hsl(79deg 100% 28%) 50%,
+                  hsl(76deg 100% 32%) 57%,
+                  hsl(74deg 98% 36%) 99%);
+      }
+
+      form {
+          height: 70%;
+          width: 1163px;
+          display: flex;
+          overflow: hidden;
+          position: relative;
+          align-items: center;
+          border-radius: 30px;
+          flex-direction: column;
+          justify-content: center;
+          background-color: #F1FBEA;
+          box-shadow: 12px 12px 12px 2px rgba(35, 101, 0, 0.266);
+
+          .img {
+              right: 0;
+              z-index: 1;
+              height: 100%;
+              position: absolute;
+              object-fit: contain;
+          }
+
+          .containerContentForm {
+              z-index: 2;
+              transform: translateX(-100px);
+
+              .texto {
+                  font-size: 3rem;
+                  font-weight: 600;
+              }
+
+              .containerInput {
+                  width: 100%;
+                  margin-bottom: 20px;
+
+                  input {
+                      width: 100%;
+                      border: none;
+                      outline: none;
+                      color: #699B4D;
+                      margin-top: 20px;
+                      font-size: 1.4rem;
+                      padding: 15px 20px;
+                      border-radius: 5px;
+                      box-sizing: border-box;
+                      background-color: #ffffff;
+                  }
+
+                  input::placeholder {
+                      color: #0b830065;
+                  }
+              }
+
+              .buttom {
+                width: 100%;
+                color: #fff;
+                padding: 20px 0;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 1.4rem;
+                text-align: center;
+                border-radius: 5px;
+                background: #587900;
+                box-sizing: border-box;
+                border: solid 2px #587900;
+                transition: .5s ease-in-out;
+                box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.404);
+              }
+      
+              .buttom:hover {
+                background: #59790000;
+                color: #80af00;
+              }
+          }
+      }
+  }
+
+  @media screen and (max-width: 1167px) {
+      .container {
+          .backgroundTop {
+              height: 100%;
+          }
+
+          form {
+              width: 80%;
+              height: 90%;
+              border-radius: 10px;
+              background-color: rgb(227, 249, 224);
+
+              .img {
+                  right: -200px;
+              }
+
+              .containerContentForm {
+                  z-index: 2;
+                  display: flex;
+                  height: 70%;
+                  text-align: center;
+                  align-items: center;
+                  flex-direction: column;
+                  transform: translateX(0);
+                  justify-content: space-evenly;
+
+                  .containerInput {
+                      .esqueceu {
+                          width: 90%;
+
+                          a {
+                              font-size: 1.7rem;
+                              color: #1b3f00 !important;
+                          }
+                      }
+
+                      input {
+                          width: 80%;
+                          padding: 30px;
+                      }
+                  }
+
+                  .buttom {
+                      width: 80%;
+                      padding: 0;
+                      padding: 25px 0;
+                      font-size: 1.3rem;
+                  }
+
+                  div:nth-child(1) {
+                      font-size: 3rem;
+                      font-weight: 700;
+                      color: #142E00 !important;
+                  }
+
+                  div:nth-child(2) {
+                      font-size: 3rem;
+                      color: #142E00 !important;
+                  }
+
+                  div:nth-child(3) {
+                      width: 80%;
+                      color: #142E00 !important;
+                      font-size: 2rem !important;
+                  }
+              }
+          }
+      }
+  }
+
+  @media screen and (max-width: 582px) {
+
+      .container {
+          form {
+              .containerContentForm {
+
+                  .containerInput {
+                      .esqueceu {
+                          a {
+                              font-size: 1rem;
+                              color: #1b3f00 !important;
+                          }
+                      }
+
+                      input {
+                          width: 100%;
+                          padding: 20px;
+                      }
+                  }
+
+                  div:nth-child(1) {
+                      font-size: 2rem;
+                      font-weight: 700;
+                  }
+
+                  div:nth-child(2) {
+                      font-size: 1.6rem;
+                  }
+
+                  div:nth-child(3) {
+                      width: 80%;
+                      font-size: 0.7rem !important;
+                  }
+              }
+          }
+      }
+  }
+
+  @media screen and (max-width: 582px) {
+      .container {
+          form {
+              height: 70%;
+
+              .containerContentForm {
+                  .buttom {
+                      padding: 15px 0;
+                  }
+
+                  .containerInput {
+                      .esqueceu {
+                          width: 90%;
+                      }
+
+                      input {
+                          width: 80%;
+                      }
+                  }
+
+              }
+          }
+      }
+  }
+
+  @media screen and (max-width: 360px) {
+
+      .container {
+          form {
+              height: 85%;
+          }
+      }
+  }
