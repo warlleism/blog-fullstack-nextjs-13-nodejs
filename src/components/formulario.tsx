@@ -3,10 +3,17 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import CloseIcon from '@mui/icons-material/Close';
 import ConvertBase64 from "../hooks/useBase64";
 import UseCreatePost from "@/hooks/useCreatePosts";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
+import { PostData } from "@/interface/IPostData";
+import { Dispatch, SetStateAction } from 'react';
 
+interface FormularioProps {
+    isHidden: boolean;
+    isShowing: Dispatch<SetStateAction<boolean>>;
+    data: PostData;
+}
 
-const Formulario = ({ isHidden, isShowing, data, refresh }: any) => {
+const Formulario = ({ isHidden, isShowing, data }: FormularioProps) => {
 
     const { postApi, isLoading } = UseCreatePost()
 
@@ -21,8 +28,8 @@ const Formulario = ({ isHidden, isShowing, data, refresh }: any) => {
         setFormulario(data)
     }, [isHidden]);
 
-    const defaultForm = {
-        id: "",
+    const initialFormulario = {
+        id: 0,
         cabecalho: "",
         titulo: "",
         data: "",
@@ -30,16 +37,20 @@ const Formulario = ({ isHidden, isShowing, data, refresh }: any) => {
         artigo: ""
     }
 
-    const [formulario, setFormulario] = useState<{ [key: string]: string }>(defaultForm);
+    const [formulario, setFormulario] = useState<PostData>(initialFormulario);
 
-    const uploadImage = async (e: any) => {
+    const uploadImage = async (e: ChangeEvent<HTMLInputElement>): Promise<void> => {
         const { name } = e.target;
-        const file = e.target.files[0];
-        const base64 = await ConvertBase64(file);
+        const file = e.target.files?.[0];
+        if (!file) {
+            return;
+        }
 
-        setFormulario((prevFormData) => ({
+        const base64 = await ConvertBase64(file) as string;
+
+        setFormulario((prevFormData: PostData) => ({
             ...prevFormData,
-            [name]: base64
+            [name]: base64,
         }));
     }
 
@@ -79,7 +90,6 @@ const Formulario = ({ isHidden, isShowing, data, refresh }: any) => {
 
     return (
         <>
-            {console.log(formulario)}
             {
                 isHidden
                     ?
@@ -117,18 +127,18 @@ const Formulario = ({ isHidden, isShowing, data, refresh }: any) => {
                                 <div className={styles.containerInputs}>
                                     <div className={styles.containerInput}>
                                         <label htmlFor="form">Cabeçalho</label>
-                                        <input onChange={(event) => handlerInput(event)} name="cabecalho" value={formulario.cabecalho} type="text" placeholder="A FLORESTA TROPICAL" />
+                                        <input onChange={(event) => handlerInput(event)} name="cabecalho" value={formulario?.cabecalho} type="text" placeholder="A FLORESTA TROPICAL" />
                                     </div>
 
                                     <div className={styles.containerInput}>
                                         <label htmlFor="form">Título</label>
-                                        <input onChange={(event) => handlerInput(event)} name="titulo" value={formulario.titulo} type="text" placeholder="Características Da Floresta Amazônica" />
+                                        <input onChange={(event) => handlerInput(event)} name="titulo" value={formulario?.titulo} type="text" placeholder="Características Da Floresta Amazônica" />
                                     </div>
                                 </div>
                                 <div className={styles.containerInputs}>
                                     <div className={styles.containerInput}>
                                         <label htmlFor="form">Data</label>
-                                        <input onBlur={(event) => handlerInput(event)} defaultValue={formulario.data} onClick={() => {
+                                        <input onBlur={(event) => handlerInput(event)} defaultValue={formulario?.data} onClick={() => {
                                             const formato = document.getElementById('formato');
                                             if (formato) {
                                                 formato.style.display = 'none'
@@ -144,8 +154,8 @@ const Formulario = ({ isHidden, isShowing, data, refresh }: any) => {
                                                 fontSize: '1.7rem',
                                                 transition: ".5s",
                                                 border: "solid 2px #587900",
-                                                color: formulario.img ? "#fff" : "#111217",
-                                                background: formulario.img ? "#111217" : "#fff",
+                                                color: formulario?.img ? "#fff" : "#111217",
+                                                background: formulario?.img ? "#111217" : "#fff",
                                                 padding: 1.7,
                                                 borderRadius: 10
                                             }} />
@@ -155,7 +165,7 @@ const Formulario = ({ isHidden, isShowing, data, refresh }: any) => {
                                 </div>
                                 <div className={styles.containerInput}>
                                     <label htmlFor="form">Artigo</label>
-                                    <textarea onChange={(event: any) => handlerInput(event)} name="artigo" value={formulario.artigo} rows={8}></textarea>
+                                    <textarea onChange={(event: any) => handlerInput(event)} name="artigo" value={formulario?.artigo} rows={8}></textarea>
                                 </div>
                                 <div className={styles.buttom} onClick={() => postApi("http://localhost:3003/create", formulario)}>
                                     {

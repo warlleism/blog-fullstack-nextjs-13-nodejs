@@ -1,30 +1,31 @@
-
 import { useState } from 'react';
-import { useGlobalContext } from "@/contexts/provider";
+import { useGlobalContext } from '@/contexts/provider';
+import { PostData } from '@/interface/IPostData';
+
+type PostApiFunction = (url: string, object: PostData) => Promise<void>;
 
 const UseCreatePost = () => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const { reload, setReload } = useGlobalContext();
 
-  const [isLoading, setIsLoading] = useState(false)
-  const { reload, setReload } = useGlobalContext()
-
-  const postApi = async (url: string, object: any) => {
-    setIsLoading(true)
+  const postApi: PostApiFunction = async (url, object) => {
+    setIsLoading(true);
     try {
       await fetch(url, {
-        method: "PUT",
+        method: 'PUT',
         body: JSON.stringify(object),
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
       });
       setTimeout(() => {
-        setIsLoading(false)
-      }, 2000)
-      setReload(!reload)
+        setIsLoading(false);
+      }, 2000);
+      setReload(!reload);
     } catch (error) {
-      console.log({ erro: error })
-      setReload(!reload)
-      setIsLoading(false)
+      console.log({ error });
+      setReload(!reload);
+      setIsLoading(false);
     }
   };
 

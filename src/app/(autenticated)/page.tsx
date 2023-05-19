@@ -5,14 +5,23 @@ import Formulario from "@/components/formulario";
 import styles from "../../styles/Home.module.scss"
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import UseGetPosts from "@/hooks/useGetPosts";
-import img from "../../../public/images/create.png"
+import { PostData } from "@/interface/IPostData";
 
 export default function Home() {
 
+  const initialFormulario = {
+    id: 0,
+    cabecalho: "",
+    titulo: "",
+    data: "",
+    img: "",
+    artigo: ""
+  }
+
   const [form, setForm] = useState<boolean>(false)
-  const { data, isLoading, setIsLoading } = UseGetPosts()
+  const { data, isLoading } = UseGetPosts()
   const [isAdmin, setIsAdmin] = useState(false)
-  const [formulario, setFormulario] = useState([])
+  const [formulario, setFormulario] = useState<PostData>(initialFormulario);
 
   useEffect(() => {
     const isAdmin = localStorage.getItem('isAdmin')
@@ -22,7 +31,7 @@ export default function Home() {
 
   return (
     <>
-      <Formulario isHidden={form} isShowing={setForm} data={formulario} refresh={setIsLoading} />
+      <Formulario isHidden={form} isShowing={setForm} data={formulario} />
       <div className={styles.container}>
         {
           data?.map((e: any, index) => {

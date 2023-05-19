@@ -1,11 +1,10 @@
-
-const useConvertBase64 = (file: any) => {
-    return new Promise((resolve, reject) => {
+const useConvertBase64 = (file: File): Promise<string> => {
+    return new Promise<string>((resolve, reject) => {
         const fileReader = new FileReader();
         fileReader.readAsDataURL(file);
 
         fileReader.onload = () => {
-            resolve(fileReader.result);
+            resolve(fileReader.result as string);
         };
 
         fileReader.onerror = (error) => {
